@@ -1,0 +1,8 @@
+input,
+textarea {
+	padding: 10px;
+	border-radius: 2px;
+	border: solid 1px rgb(210, 210, 210);
+	display: block;
+	font-family: Arial;
+}
