@@ -10,6 +10,7 @@
     "firebase": "^3.7.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-scribe": "^0.2.10",
     "tachyons": "^4.7.4"
   },
   "scripts": {
