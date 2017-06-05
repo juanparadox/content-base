@@ -1,25 +1,10 @@
 // React
-import React, {Component} from "react";
-// Firebase
-import * as firebase from "firebase";
+import React, {Component} from "react"
 // Components
-import PostForm from "./components/PostForm";
+import PostForm from "./components/PostForm"
 import Nav from './components/Nav'
 import Settings from './components/Settings'
 import tachyons from 'tachyons'
-
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyD7Ip4NfWTf7fHOZr45StcPhFNSrTLLfJk",
-  authDomain: "content-base-3deb0.firebaseapp.com",
-  databaseURL: "https://content-base-3deb0.firebaseio.com",
-  storageBucket: "content-base-3deb0.appspot.com"
-};
-
-firebase.initializeApp(config);
-
-// Get a reference to the database service
-let database = firebase.database();
 
 class App extends Component {
   constructor(){
@@ -29,33 +14,15 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    let postsData = database.ref('posts/');
-    postsData.on('value', snapshot => this.setState({ posts: snapshot.val() }));
-  }
-
-  confirm = () => {
-    console.log("hhh");
-  }
-
-  handleSubmit = e => {
-    e.preventDefault();
-    database.ref('posts/').push({
-      username: "hah",
-      email: "hh",
-      profile_picture : "ugiugi"
-    }, this.confirm);
-  }
-
   render() {
     return (
       <div className="athelas">
         {Nav()}
         <div className="cf">
-          <div className="fl w-20 pv5">
+          <div className="fl w-20">
             {Settings()}
           </div>
-          <div className="fl w-80 pv5">
+          <div className="fl w-80">
             <PostForm/>
           </div>
         </div>
