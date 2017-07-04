@@ -8,8 +8,17 @@ firebase.initializeApp(config);
 let database = firebase.database();
 
 // TODO: Show success in UI
-const publishPost = post => (
+const publishPost = post =>
 	dispatch => database.ref('posts/').push(post, () => console.log("done!"))
-	)
 
-export { publishPost }
+// Retrieves all posts
+const getContent = post =>
+	dispatch => database.ref('posts/').once('value', snapshot => console.log(snapshot.val()))
+
+const changeView = view =>
+	({
+		type: 'CHANGE_VIEW',
+		payload: view
+	})
+
+export { publishPost, getContent, changeView }

@@ -1,9 +1,14 @@
 // React
 import React, {Component} from "react"
+import PropTypes from 'prop-types'
+// Redux
+import { connect } from 'react-redux'
+import store from './store'
+import { getContent } from './actions'
 // Components
-import PostForm from "./components/PostForm"
-import Nav from './components/Nav'
-import Settings from './components/Settings'
+import {Nav} from './components/Nav'
+import {Home} from './components/home/Home'
+import Content from './components/content/Content'
 import tachyons from 'tachyons'
 
 class App extends Component {
@@ -14,21 +19,23 @@ class App extends Component {
     }
   }
 
+  componentWillMount(){
+    store.dispatch(getContent())
+  }
+
   render() {
     return (
       <div className="athelas">
         {Nav()}
-        <div className="cf">
-          <div className="fl w-20">
-            {Settings()}
-          </div>
-          <div className="fl w-80">
-            <PostForm/>
-          </div>
-        </div>
+        { this.props.view === 'home'
+          ? <Home/>
+          : <Content/>
+        }
       </div>
     );
   }
 }
 
-export default App
+const mapStateToProps = store => ({view: store.view.view})
+
+export default connect(mapStateToProps)(App)
