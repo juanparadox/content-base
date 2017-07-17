@@ -9,6 +9,7 @@ import { getContent } from './actions'
 import {Nav} from './components/Nav'
 import {Home} from './components/home/Home'
 import Content from './components/content/Content'
+import Templates from './components/Templates'
 import tachyons from 'tachyons'
 
 class App extends Component {
@@ -23,19 +24,41 @@ class App extends Component {
     store.dispatch(getContent())
   }
 
+  renderView = () => {
+    let render
+    switch(this.props.view){
+      case 'home':
+        render = Home(this.props.content)
+      break;
+      case 'write':
+        render = <Content/>
+      break;
+      case 'feed':
+        console.log('feed')
+      break;
+      case 'settings':
+        console.log('settings')
+      break;
+      case 'templates':
+        render = <Templates/>
+      break;
+      default:
+        render = Home(this.props.content)
+      break;
+    }
+    return render
+  }
+
   render() {
     return (
       <div className="athelas">
         {Nav()}
-        { this.props.view === 'home'
-          ? <Home/>
-          : <Content/>
-        }
+        {this.renderView()}
       </div>
     );
   }
 }
 
-const mapStateToProps = store => ({view: store.view.view})
+const mapStateToProps = store => ({view: store.view.view, content: store.post.content})
 
 export default connect(mapStateToProps)(App)

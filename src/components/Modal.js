@@ -14,12 +14,10 @@ const Modal = () =>
 		    Sign up for beta access or learn more about x.
 		  </p>
 		  <div>
-		    <a className="f6 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr3"
-		      href="#">
+		    <a className="f6 br-pill bg-dark-green no-underline washed-green ba b--dark-green grow pv2 ph3 dib mr3">
 		      Sign Up
 		    </a>
-		    <a className="f6 br-pill dark-green no-underline ba grow pv2 ph3 dib"
-		      href="#">
+		    <a className="f6 br-pill dark-green no-underline ba grow pv2 ph3 dib">
 		      Learn More
 		    </a>
 		  </div>

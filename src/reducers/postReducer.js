@@ -1,5 +1,6 @@
 const initialState = {
-  test: 'hi'
+  content: [],
+  post: null
 }
 
 export default function reducer(state = initialState, action){
@@ -8,6 +9,18 @@ export default function reducer(state = initialState, action){
       return {
         ...state,
         test: action.payload
+      }
+    }
+    case 'SET_CONTENT':{
+      return {
+        ...state,
+        content: action.payload
+      }
+    }
+    case 'EDITING_POST':{
+      return {
+        ...state,
+        post: state.content[action.payload]
       }
     }
     default:

@@ -1,6 +1,7 @@
 // Firebase
 import * as firebase from "firebase"
 import config from './fb-config.json'
+import store from './store'
 
 firebase.initializeApp(config);
 
@@ -11,14 +12,24 @@ let database = firebase.database();
 const publishPost = post =>
 	dispatch => database.ref('posts/').push(post, () => console.log("done!"))
 
+// TODO: Show success in UI
+const setEditingPost = key => ({
+	type: 'EDITING_POST',
+	payload: key
+})
+
 // Retrieves all posts
 const getContent = post =>
-	dispatch => database.ref('posts/').once('value', snapshot => console.log(snapshot.val()))
+	dispatch => database.ref('posts/').once('value', snapshot => store.dispatch(setContent(snapshot.val())))
 
-const changeView = view =>
-	({
+const setContent = content =>({
+		type: 'SET_CONTENT',
+		payload: content
+})
+
+const changeView = view => ({
 		type: 'CHANGE_VIEW',
 		payload: view
-	})
+})
 
-export { publishPost, getContent, changeView }
+export { publishPost, getContent, setContent, changeView, setEditingPost }

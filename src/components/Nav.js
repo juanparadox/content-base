@@ -10,8 +10,9 @@ export const Nav = () =>
 	    <img src={logo} className="dib w2 h2 br-100" alt="Site Name"/>
 	  </a>
 	  <div className="dtc v-mid w-75 tr">
-	    <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="Write" onClick={() => store.dispatch(changeView('write'))}>Write</a>
-	    <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="Feed">Feed</a>
-			<a className="link dim dark-gray f6 f5-ns dib" href="#" title="Settings" onClick={() => store.dispatch(changeView('settings'))}>Settings</a>
+	    <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" title="Write" onClick={() => store.dispatch(changeView('write'))}>Write</a>
+	    <a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" title="Feed">Feed</a>
+			<a className="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" title="Templates" onClick={() => store.dispatch(changeView('templates'))}>Templates</a>
+			<a className="link dim dark-gray f6 f5-ns dib" title="Settings" onClick={() => store.dispatch(changeView('settings'))}>Settings</a>
 	  </div>
 	</nav>

@@ -1,17 +1,31 @@
 import React from 'react'
+import store from '../../store'
+import {setEditingPost, changeView} from '../../actions'
 
-export const Home = () =>
-  <dl className="lh-title pa4 mt0">
-    <dt className="f6 b">Favorite Song</dt>
-    <dd className="ml0">Devil Got My Woman - Skip James</dd>
-    <dt className="f6 b mt2">Favorite Movie</dt>
-    <dd className="ml0">Primer</dd>
-    <dt className="f6 b mt2">Favorite Artist</dt>
-    <dd className="ml0">Kanye West</dd>
-    <dt className="f6 b mt2">Favorite Food</dt>
-    <dd className="ml0">Cheese Pizza</dd>
-    <dt className="f6 b mt2">Least Favorite Flavor</dt>
-    <dd className="ml0">Cherry</dd>
-    <dt className="f6 b mt2">Favorite Hobby</dt>
-    <dd className="ml0">Eating Cheese Pizza</dd>
-  </dl>
+const handleClick = key => {
+  store.dispatch(setEditingPost(key))
+  store.dispatch(changeView('content'))
+}
+
+const renderTitles = content => {
+  let titles = []
+  for (let key in content) {
+    if (content.hasOwnProperty(key)) {
+      titles.push(
+        <div key={key} onClick={() => handleClick(key)}>
+          <dt className="f6 b">{content[key].title}</dt>
+          <dd className="ml0">Devil Got My Woman - Skip James</dd>
+        </div>
+      )
+    }
+  }
+  return titles
+}
+
+export const Home = content =>
+  <div>
+    <span className="ma4 f4 b mb3 db">Posts</span>
+    <dl className="lh-title pa4 mt0">
+      {content && renderTitles(content)}
+    </dl>
+  </div>

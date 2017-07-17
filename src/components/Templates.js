@@ -2,16 +2,13 @@
 
 // React
 import React, {Component} from "react"
-import PostForm from "../../components/PostForm"
-import Nav from '../../components/Nav'
-import Settings from '../../components/Settings'
 // Redux
 import { connect } from 'react-redux'
-import store from '../../store'
+import store from '../store'
 
 const mapStateToProps = store => ({test: store.post.test, content: store.post.content})
 
-class Content extends Component {
+class Templates extends Component {
   constructor(){
     super();
     this.state = {
@@ -24,15 +21,10 @@ class Content extends Component {
   render() {
     return (
       <div className="cf">
-      	<div className="fl w-20">
-        	{Settings({handleChange: this.handleChange})}
-      	</div>
-      	<div className="fl w-80">
-        	<PostForm/>
-      	</div>
+      	templates
     	</div>
     )
   }
 }
 
-export default connect(mapStateToProps)(Content)
+export default connect(mapStateToProps)(Templates)
