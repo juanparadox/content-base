@@ -27,9 +27,4 @@ const setContent = content =>({
 		payload: content
 })
 
-const changeView = view => ({
-		type: 'CHANGE_VIEW',
-		payload: view
-})
-
-export { publishPost, getContent, setContent, changeView, setEditingPost }
+export { publishPost, getContent, setContent, setEditingPost }

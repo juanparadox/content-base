@@ -22,3 +22,15 @@ button {
 .sc-editor{
 	outline: none;
 }
+
+.h3-5 {
+  height: 6rem;
+}
+
+.feliz {
+  font-family: "los-feliz",serif;
+}
+
+.bg-primary {
+  background-color: #bf9456;
+}

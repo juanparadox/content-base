@@ -1,7 +1,6 @@
-import { combineReducers } from "redux";
-import post from "./postReducer";
-import view from "./viewReducer";
+import { combineReducers } from "redux"
+import post from "./postReducer"
 
 export default combineReducers({
-  post, view
+  post
 });

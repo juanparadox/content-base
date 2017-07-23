@@ -1,19 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types'
+import LogoLinkList from './LogoLinkList'
+import bg from './img/splash-min.jpg'
 
 const Feature = ({ title, featureImage }) => (
     <article className="athelas">
-      <div className="vh-100 dt w-100 tc bg-dark-gray white cover" style={{ background: "url(" + featureImage + ") no-repeat center" }}>
-        <div className="dtc v-mid">
-          <header className="white-70">
-            <h2 className="f6 fw1 ttu tracked mb2 lh-title">Issue Six</h2>
-            <h3 className="f6 fw1 lh-title">Summer MMXVI</h3>
-          </header>
-          <h1 className="f1 f-headline-l fw1 i white-60">The Chronicles</h1>
+      <div className="vh-100 dt w-100 tc white cover" style={{ background: "url(" + featureImage + ") no-repeat center" }}>
+        <div className="dtc ">
+          <LogoLinkList/>
+          <h1 className="f1 f-headline-l white b mt6 mb3">Best barber in town</h1>
           <blockquote className="ph0 mh0 measure f4 lh-copy center">
-            <p className="fw1 white-70">
-              It's the space you put between the notes that make the music.
+            <p className="fw1 light-gray">
+              Melo’s Barber Shop in Orlando, Florida is here to provide gentleman the proper grooming through superior men’s haircuts.
             </p>
-            <cite className="f6 ttu tracked fs-normal">Massimo Vignelli</cite>
+            <a className="f6 link ph3 pv2 mb2 dib white bg-primary ttu b tracked sans-serif mt3" href="#0">Make an appointment</a>
           </blockquote>
         </div>
       </div>
@@ -52,13 +52,13 @@ const Feature = ({ title, featureImage }) => (
 );
 
 Feature.defaultProps = {
-    featureImage: "http://mrmrs.io/photos/u/009.jpg",
+    featureImage: bg,
     title: "The repercussion of ugliness is endless"
 };
 
 Feature.propTypes = {
-  featureImage: React.PropTypes.string,
-  title: React.PropTypes.string
+  featureImage: PropTypes.string,
+  title: PropTypes.string
 }
 
 export default Feature;

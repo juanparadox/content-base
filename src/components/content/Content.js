@@ -1,13 +1,10 @@
 // Create content
-
 // React
 import React, {Component} from "react"
 import PostForm from "../../components/PostForm"
-import Nav from '../../components/Nav'
 import Settings from '../../components/Settings'
 // Redux
 import { connect } from 'react-redux'
-import store from '../../store'
 
 const mapStateToProps = store => ({test: store.post.test, content: store.post.content})
 

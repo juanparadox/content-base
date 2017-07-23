@@ -1,64 +1,38 @@
 // React
 import React, {Component} from "react"
-import PropTypes from 'prop-types'
 // Redux
-import { connect } from 'react-redux'
 import store from './store'
 import { getContent } from './actions'
+// React Router
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 // Components
 import {Nav} from './components/Nav'
-import {Home} from './components/home/Home'
+import Home from './components/home/Home'
 import Content from './components/content/Content'
 import Templates from './components/Templates'
-import tachyons from 'tachyons'
+import {Cosmetology} from './components/template/cosmetology/Cosmetology.js'
+import 'tachyons'
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      posts: null
-    }
-  }
-
   componentWillMount(){
     store.dispatch(getContent())
-  }
-
-  renderView = () => {
-    let render
-    switch(this.props.view){
-      case 'home':
-        render = Home(this.props.content)
-      break;
-      case 'write':
-        render = <Content/>
-      break;
-      case 'feed':
-        console.log('feed')
-      break;
-      case 'settings':
-        console.log('settings')
-      break;
-      case 'templates':
-        render = <Templates/>
-      break;
-      default:
-        render = Home(this.props.content)
-      break;
-    }
-    return render
   }
 
   render() {
     return (
       <div className="athelas">
-        {Nav()}
-        {this.renderView()}
+        <Router>
+        	<div>
+            {Nav()}
+          	<Route exact={true} path="/" component={Home}/>
+            <Route exact={true} path="/cb/write" component={Content}/>
+            <Route exact={true} path="/cb/templates" component={Templates}/>
+            <Route exact={true} path="/cb/templates/cosmetology/" component={Cosmetology}/>
+          </div>
+        </Router>
       </div>
     );
   }
 }
 
-const mapStateToProps = store => ({view: store.view.view, content: store.post.content})
-
-export default connect(mapStateToProps)(App)
+export default App
