@@ -31,6 +31,22 @@ button {
   font-family: "los-feliz",serif;
 }
 
-.bg-primary {
-  background-color: #bf9456;
+.measure-xwide {
+  max-width: 39em;
+}
+
+@keyframes up-down {
+    from {margin-top: initial}
+    to {margin-top: 2rem}
+}
+
+.up-down-animate {
+  animation-name: up-down;
+  animation-duration: 8s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: initial;
+  animation-fill-mode: initial;
+  animation-play-state: initial;
 }

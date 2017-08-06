@@ -1,10 +1,9 @@
-// Create content
-
 // React
 import React, {Component} from "react"
 // Redux
 import { connect } from 'react-redux'
-import store from '../store'
+// Router
+import {Link} from 'react-router-dom'
 
 const mapStateToProps = store => ({test: store.post.test, content: store.post.content})
 
@@ -21,7 +20,7 @@ class Templates extends Component {
   render() {
     return (
       <div className="cf">
-      	templates
+      	<Link to="/cb/templates/cosmetology">Cosmetology</Link>
     	</div>
     )
   }
