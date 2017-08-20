@@ -10,7 +10,7 @@ class Pricing extends Component {
 
   render() {
     return (
-      <div className="mw9 center lh-copy pb5-ns pt6-ns pv0">
+      <div className="mw9 center lh-copy pb5-ns pt6-ns pv0" id="pricing">
         <div className="cf">
           <div className="fl w-100 w-50-ns pa4 tc cover dt" style={{ background: "url(" + this.props.bg + ") right no-repeat", marginTop: '-3rem' }} id="sm-left">
             <div className="v-mid dib dtc tc">

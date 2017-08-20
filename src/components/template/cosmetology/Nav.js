@@ -4,7 +4,11 @@ import logo from './img/logo.svg'
 
 const Nav = ({ img, left, right}) =>
   <nav className="pa3 pt5-ns ph4-ns tc tracked">
-    { left.map((item, index) => <span className="link feliz dim white f6 f5-ns dib mh4-l mh3 v-mid pointer ttu" key={index}>{ item.text }</span>) }
+    { left.map((item, index) =>
+      <a href={item.href} key={index}>
+        <span className="link feliz dim white f6 f5-ns dib mh4-l mh3 v-mid pointer ttu">{ item.text }</span>
+      </a>)
+    }
     <img className="link feliz f1 f-headline-ns tc dib h3-5 ma v-mid" src={img} alt="logo"/>
     { right.map((item, index) => <span className="link feliz dim white f6 f5-ns dib mh4-l mh3 v-mid pointer ttu" key={index}>{ item.text }</span>) }
   </nav>
@@ -19,25 +23,25 @@ Nav.defaultProps = {
     },
     {
       text: "About",
-      href: "#"
+      href: "#about"
     },
     {
       text: "Pricing",
-      href: "#"
+      href: "#pricing"
     }
   ],
   right: [
     {
       text: "Locations",
-      href: "#"
+      href: "#locations"
     },
     {
       text: "Reviews",
-      href: "#"
+      href: "#reviews"
     },
     {
       text: "Contact",
-      href: "#"
+      href: "#contact"
     }
   ]
 };

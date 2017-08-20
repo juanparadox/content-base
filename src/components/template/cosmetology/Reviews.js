@@ -17,7 +17,7 @@ const style = {
 }
 //TODO: pass the img and reviews in as props
 const Reviews = ({ title, p, img1, img2}) => (
-  <div className="bg-near-white w-100">
+  <div className="bg-near-white w-100" id="reviews">
     <div className="mw9 center ph3-ns center tc pv5 lh-copy">
       <h1 className="f1 lh-title feliz normal tracked center mt0">{ title }</h1>
       <span className="ss center"></span>

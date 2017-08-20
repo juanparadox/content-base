@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types'
 
 const Footer = ({ locations, icons, email, copyright }) =>
-	<footer className="pv5 bt b--black-10 ph4">
+	<footer className="pv5 bt b--black-10 ph4" id="#contact">
 		<div className="mw9 center">
 	    <div className="mb4-l cf">
 	      <h1 className="pv0 f1 lh-title tracked mb4 feliz normal mt0">Contact</h1>

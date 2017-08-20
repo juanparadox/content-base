@@ -16,7 +16,7 @@ const style = {
 }
 
 const About = ({ title, p, img1, img2}) => (
-  <div className="mw9 center pv5 lh-copy">
+  <div className="mw9 center pv5 lh-copy" id="about">
     <div className="cf">
       <div className="fl w-100 w-50-ns pa4 tr relative">
         <img src={img1} style={style.img1} alt=""/>
